@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 django = "*"
 autopep8 = "*"
+opencv-contrib-python = "*"
 
 [dev-packages]
 
