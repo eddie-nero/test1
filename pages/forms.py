@@ -13,4 +13,12 @@ class FileInfoForm(forms.ModelForm):
 
     class Meta:
         model = FileInfo
-        fields = ('file', 'avg_rgb', 'avg_image', 'height', 'width')
+        fields = (
+            'file',
+            'avg_rgb',
+            'avg_image',
+            'height',
+            'width',
+            'num_of_coins',
+            'sum_of_coins'
+        )

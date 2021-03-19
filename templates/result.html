@@ -15,6 +15,8 @@ File Info
         <th>Average Image</th>
         <th>Height</th>
         <th>Width</th>
+        <th>Number of coins</th>
+        <th>Sum of coins</th>
     </tr>
     {% for file in files %}
     <tr>
@@ -27,9 +29,13 @@ File Info
         <th><img src="{{file.avg_image.url}}" width="100"></th>
         <th>{{file.height}}</th>
         <th>{{file.width}}</th>
+        <th>{{file.num_of_coins}}</th>
+        <th>{{file.sum_of_coins}}</th>
     </tr>
     {% endfor %}
 </table>
+<br>
+<a class='btn btn-primary' href="{% url 'home' %}">Return to Homepage</a>
 
 
 

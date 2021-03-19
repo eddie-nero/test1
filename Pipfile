@@ -9,6 +9,9 @@ autopep8 = "*"
 opencv-contrib-python = "*"
 pillow = "*"
 matplotlib = "*"
+environs = {extras = ["django"], version = "*"}
+whitenoise = "*"
+gunicorn = "*"
 
 [dev-packages]
 
