@@ -6,7 +6,7 @@ Upload now
 
 
 {% block content %}
-<form action="upload/" method="POST" class="dropzone dz" id="my-dropzone">
+<form action="upload/" method="POST" class="dropzone dz" id="myDropzone">
     {% csrf_token %}
     <div class="fallback">
         <input name="file" type="file" multiple />
