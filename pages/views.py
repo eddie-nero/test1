@@ -1,3 +1,4 @@
+from pages.forms import FileInfoForm
 from django.http.response import JsonResponse
 from django.views.generic import TemplateView
 from django.http import HttpResponse
@@ -10,7 +11,7 @@ import matplotlib.pyplot as plt
 import io
 import time
 from config import settings
-from .models import UploadFile
+from .models import FileInfo, UploadFile
 
 # from somewhere import handle_uploaded_file
 
@@ -20,7 +21,12 @@ class HomePageView(TemplateView):
 
 
 class ResultPageView(TemplateView):
-    template_name = 'process.html'
+    template_name = 'result.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['files'] = FileInfo.objects.all()
+        return context
 
 
 def file_upload_view(request):
@@ -31,6 +37,9 @@ def file_upload_view(request):
         height, width = get_file_size(up_file.file.name)
         avg_color = get_average_color(up_file.file.name)
         avg_image = create_image(avg_color)
+        file_info = FileInfo(file=up_file, avg_rgb=avg_color,
+                             avg_image=avg_image, height=height, width=width)
+        file_info.save()
         return HttpResponse('')
     return JsonResponse({'post': 'false'})
 

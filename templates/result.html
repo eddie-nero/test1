@@ -1,0 +1,36 @@
+{% extends '_base.html' %}
+
+{% block title %}
+File Info
+{% endblock title %}
+
+
+{% block content %}
+<h1>Result Page</h1>
+
+<table class="table-bordered">
+    <tr>
+        <th>Filename</th>
+        <th>Average color</th>
+        <th>Average Image</th>
+        <th>Height</th>
+        <th>Width</th>
+    </tr>
+    {% for file in files %}
+    <tr>
+        <th>
+            {{file.file }}
+        </th>
+        <th>
+            {{ file.avg_rgb }}
+        </th>
+        <th><img src="{{file.avg_image.url}}" width="100"></th>
+        <th>{{file.height}}</th>
+        <th>{{file.width}}</th>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+{% endblock content %}
